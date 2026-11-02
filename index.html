@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>Coming Soon</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                background:
+                    radial-gradient(circle at top left, #4f46e5, transparent 40%),
+                    radial-gradient(circle at bottom right, #9333ea, transparent 40%),
+                    #09090b;
+                color: white;
+                overflow: hidden;
+            }
+
+            .container {
+                text-align: center;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: clamp(3rem, 10vw, 7rem);
+                letter-spacing: 0.08em;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .gradient-text {
+                background: linear-gradient(90deg,
+                        #ffffff,
+                        #a5b4fc,
+                        #f0abfc,
+                        #ffffff);
+                background-size: 300% 100%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradient 4s linear infinite;
+            }
+
+            p {
+                margin-top: 1rem;
+                color: #a1a1aa;
+                font-size: 1.1rem;
+            }
+
+            .dots {
+                display: inline-flex;
+                gap: 6px;
+                margin-left: 6px;
+            }
+
+            .dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #c4b5fd;
+                animation: bounce 1.2s infinite;
+            }
+
+            .dot:nth-child(2) {
+                animation-delay: 0.15s;
+            }
+
+            .dot:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+
+            @keyframes gradient {
+                from {
+                    background-position: 0% 50%;
+                }
+
+                to {
+                    background-position: 300% 50%;
+                }
+            }
+
+            @keyframes bounce {
+
+                0%,
+                60%,
+                100% {
+                    transform: translateY(0);
+                    opacity: 0.4;
+                }
+
+                30% {
+                    transform: translateY(-8px);
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="container">
+            <h1 class="gradient-text">COMING SOON</h1>
+
+            <p>
+
+                <span class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </span>
+            </p>
+        </main>
+    </body>
+
+</html>
