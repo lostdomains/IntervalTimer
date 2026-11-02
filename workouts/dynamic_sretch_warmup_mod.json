@@ -2,124 +2,136 @@
   "version": 1,
   "workouts": [
     {
-      "id": "dynamic-stretch-warmup",
+      "id": "4fcea9af-7195-47f3-aa0d-ec7ce140aa4a",
       "name": "Dynamic stretch warmup [MOD]",
       "description": "Dynamic stretch warmup with a 1-second preparation step. Original exercise order and durations preserved; no rest intervals.",
       "color": "green",
       "exercises": [
         {
-          "id": "dynamic-stretch-warmup-01",
+          "id": "5b4f3bd4-8f52-4637-966b-58782a00af6c",
           "name": "Get ready",
           "duration": 1,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-03",
+          "id": "44096b1f-4203-4636-8add-166687faaacf",
           "name": "Knee pulse right",
           "duration": 20,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-04",
+          "id": "8062bf3b-7f02-4c64-acb5-a0a431fd75e5",
           "name": "Knee pulse left",
           "duration": 20,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-06",
+          "id": "637bd327-75de-4e30-a13a-4a0d22762abc",
           "name": "Jump squats",
           "duration": 25,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-07",
+          "id": "e7aefc79-9ca3-4b9f-b34e-d0bd6e0eb29b",
           "name": "Squats",
           "duration": 25,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-05",
+          "id": "ad550ae7-1017-4b87-8ee9-e50453bcdf88",
           "name": "Plank jump jacks",
           "duration": 20,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-08",
+          "id": "a05ad0d7-b3e6-475d-af4b-4f91220a9199",
           "name": "Mountain climbers",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-10",
+          "id": "b80c08b9-8c13-4664-ad3e-9a00694a6ef0",
           "name": "Arm crosses",
           "duration": 20,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-11",
+          "id": "c430ee77-d78c-4af5-be5f-a6cfb9299383",
           "name": "Lateral squat (L+R)",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-13",
+          "id": "952a6939-53b2-4902-94b5-005ab8138ea1",
           "name": "Back flag",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-14",
+          "id": "c0409ef9-95fa-4c54-8841-bd185690a826",
           "name": "Deep squat hold",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-15",
+          "id": "fea395d4-7414-4046-9803-951a8713a0eb",
           "name": "High knee opener R",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-16",
+          "id": "00d4e158-5ba3-4e0d-92e8-8c2020d7dd03",
           "name": "High knee opener L",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-17",
+          "id": "53d4506a-83b7-49f3-a154-29dcfb88ded5",
           "name": "Airborne lunge R",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-18",
+          "id": "efcadb64-2ecb-4575-be4e-8d630b456a26",
           "name": "Airborne lunge L",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-22",
+          "id": "1b7d1035-db00-434b-a87a-076569eb72b1",
           "name": "Sun salutation push ups",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-23",
+          "id": "bb28d0a0-babe-4ad9-925c-54fa25233c70",
           "name": "A frame toe touches",
           "duration": 30,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-24",
+          "id": "d2ab287d-d6af-4568-aada-553aab165856",
           "name": "R Twist T’s",
           "duration": 20,
           "rest": 0
         },
         {
-          "id": "dynamic-stretch-warmup-25",
+          "id": "8391d5df-9aea-4673-b5ef-20b17ed1b815",
           "name": "L Twist T’s",
           "duration": 20,
           "rest": 0
+        },
+        {
+          "id": "406606d4-508a-4886-8edb-251ecda3be62",
+          "name": "Windshield whipers",
+          "duration": 40,
+          "rest": 0
+        },
+        {
+          "id": "af157007-a725-499b-a170-763d27b28ed5",
+          "name": "Full body stretch",
+          "duration": 40,
+          "rest": 20
         }
       ]
     }
