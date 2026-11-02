@@ -1,136 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0" />
-        <title>Coming Soon</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fa">
+    <meta name="description"
+      content="Build your workout, find your rhythm, and make every second count.">
+    <title>Tempo — Interval Timer</title>
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="timer.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
 
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: Arial, sans-serif;
-                background:
-                    radial-gradient(circle at top left, #4f46e5, transparent 40%),
-                    radial-gradient(circle at bottom right, #9333ea, transparent 40%),
-                    #09090b;
-                color: white;
-                overflow: hidden;
-            }
-
-            .container {
-                text-align: center;
-                padding: 2rem;
-            }
-
-            h1 {
-                font-size: clamp(3rem, 10vw, 7rem);
-                letter-spacing: 0.08em;
-                animation: float 3s ease-in-out infinite;
-            }
-
-            .gradient-text {
-                background: linear-gradient(90deg,
-                        #ffffff,
-                        #a5b4fc,
-                        #f0abfc,
-                        #ffffff);
-                background-size: 300% 100%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: gradient 4s linear infinite;
-            }
-
-            p {
-                margin-top: 1rem;
-                color: #a1a1aa;
-                font-size: 1.1rem;
-            }
-
-            .dots {
-                display: inline-flex;
-                gap: 6px;
-                margin-left: 6px;
-            }
-
-            .dot {
-                width: 7px;
-                height: 7px;
-                border-radius: 50%;
-                background: #c4b5fd;
-                animation: bounce 1.2s infinite;
-            }
-
-            .dot:nth-child(2) {
-                animation-delay: 0.15s;
-            }
-
-            .dot:nth-child(3) {
-                animation-delay: 0.3s;
-            }
-
-            @keyframes float {
-
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-
-                50% {
-                    transform: translateY(-12px);
-                }
-            }
-
-            @keyframes gradient {
-                from {
-                    background-position: 0% 50%;
-                }
-
-                to {
-                    background-position: 300% 50%;
-                }
-            }
-
-            @keyframes bounce {
-
-                0%,
-                60%,
-                100% {
-                    transform: translateY(0);
-                    opacity: 0.4;
-                }
-
-                30% {
-                    transform: translateY(-8px);
-                    opacity: 1;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <main class="container">
-            <h1 class="gradient-text">COMING SOON</h1>
-
-            <p>
-
-                <span class="dots">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </span>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#" aria-label="Tempo home"><span
+          class="brand-mark" aria-hidden="true">◴</span>tempo<span
+          class="brand-dot">.</span></a>
+      <span class="header-caption">YOUR PACE. YOUR PROGRESS.</span>
+      <div class="header-actions"><button id="sound-toggle"
+          class="icon-button" aria-label="Turn sound off"
+          title="Turn sound off"></button><button id="theme-toggle"
+          class="icon-button" aria-label="Switch to dark mode"
+          title="Switch to dark mode"></button></div>
+    </header>
+    <main>
+      <section id="library-view">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">LIST OF</p>
+            <h1>Workouts<span class="accent">.</span></h1>
+            <p class="subtitle">
             </p>
-        </main>
-    </body>
+          </div><button id="new-workout" class="button primary"><span
+              aria-hidden="true">＋</span> New workout</button>
+        </div>
+        <div class="library-toolbar">
+          <p><span class="status-dot"></span><span
+              id="workout-count">Your collection</span></p>
+          <div><button id="import-button" class="text-button">↓ Import
+              JSON</button><button id="export-button"
+              class="text-button">↑ Export JSON</button></div>
+        </div>
+        <input type="file" id="import-file"
+          accept=".json,application/json" multiple hidden>
+        <div id="workout-grid" class="workout-grid"></div>
+        <!-- <div class="library-note"><span class="note-symbol" aria-hidden="true">↗</span><div><strong>Show up. Find your rhythm.</strong><p>Pick a workout, take a breath, and let the timer handle the rest.</p></div><span class="note-lines" aria-hidden="true">▂ ▄ ▆ █ ▆ ▄ ▂</span></div> -->
+      </section>
+      <section id="workout-view" hidden>
+        <button id="back-button" class="text-button back-button">← All
+          workouts</button>
+        <div class="page-heading workout-heading">
+          <div>
+            <p class="eyebrow">LET’S GET MOVING</p>
+            <h1 id="workout-title"></h1>
+            <p id="workout-description" class="subtitle"></p>
+          </div><button id="edit-workout"
+            class="button secondary">Edit workout</button>
+        </div>
+        <div class="session-layout">
+          <section class="timer-panel" aria-label="Workout timer">
+            <div class="timer-top"><span id="phase-badge"
+                class="badge">READY WHEN YOU ARE</span><span
+                id="step-count" class="muted"></span></div>
+            <h2 id="current-exercise"></h2>
+            <div class="clock" id="clock"><svg viewBox="0 0 240 240"
+                aria-hidden="true">
+                <circle class="clock-track" cx="120" cy="120"
+                  r="104" />
+                <circle class="clock-progress" id="clock-progress"
+                  cx="120" cy="120" r="104" pathLength="100" />
+                <g id="clock-ticks"></g>
+              </svg>
+              <div class="clock-label"><span id="time-left"
+                  role="timer"
+                  aria-label="Seconds remaining">0</span><span
+                  id="timer-unit">SECONDS</span></div>
+            </div>
+            <p id="up-next" class="up-next"></p>
+            <div class="timer-controls"><button id="reset-button"
+                class="icon-button outlined" aria-label="Reset timer"
+                title="Reset timer">↺</button><button id="play-button"
+                class="button primary play-button">Start
+                workout</button><button id="skip-button"
+                class="icon-button outlined"
+                aria-label="Skip current interval"
+                title="Skip current interval">⇥</button></div>
+            <div class="session-progress">
+              <div><span id="session-status">Ready to
+                  begin</span><span id="session-remaining"></span>
+              </div><progress id="session-progress" max="100"
+                value="0" aria-label="Workout progress"></progress>
+            </div>
+          </section>
+          <section class="exercise-panel" aria-label="Exercise list">
+            <div class="section-heading">
+              <h2>The lineup</h2><span id="exercise-count"
+                class="muted"></span>
+            </div>
+            <p class="section-hint">Work intervals, with room to catch
+              your breath.</p>
+            <p id="reorder-help" class="sr-only">Drag an exercise by its handle to reorder it. With the handle focused, use the up and down arrow keys, or Home and End. Reordering resets the session.</p>
+            <ol id="exercise-list"></ol><button id="add-exercise"
+              class="add-exercise">＋ Add exercise</button>
+            <p class="edit-note">Drag the ⠿ handles to reorder. Editing or reordering resets this session.</p>
+          </section>
+        </div>
+      </section>
+      <footer><span>Energising... or something to that
+          effect</span><span class="local-note">◌ Saved
+          on this
+          device</span></footer>
+    </main>
+    <dialog id="editor-dialog">
+      <form id="editor-form">
+        <div class="dialog-heading">
+          <h2 id="editor-title">New workout</h2><button type="button"
+            class="icon-button close-dialog"
+            aria-label="Close dialog">×</button>
+        </div>
+        <div id="editor-fields"></div>
+        <p id="editor-error" class="form-error" role="alert"></p>
+        <div class="dialog-actions"><button type="button"
+            class="button secondary close-dialog">Cancel</button><button
+            class="button primary" type="submit">Save</button></div>
+      </form>
+    </dialog>
+    <dialog id="confirm-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <h2 id="confirm-title">Delete workout?</h2>
+        </div>
+        <p id="confirm-description"></p>
+        <div class="dialog-actions"><button class="button secondary"
+            value="cancel" autofocus>Cancel</button><button
+            class="button danger" value="confirm">Delete</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <div id="announcer" class="sr-only" aria-live="polite"></div>
+    <noscript>
+      <p class="noscript">Please enable JavaScript to use Tempo.</p>
+    </noscript>
+  </body>
 
 </html>

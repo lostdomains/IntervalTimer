@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "workouts": [
+    {
+      "id": "circuit",
+      "name": "Adult team circuit 7/9/25",
+      "description": "4 rounds of 8 exercises. A 10-second preparation, then 30-second work intervals with 10-second transitions, including between rounds.",
+      "color": "purple",
+      "exercises": [
+        {
+          "id": "circuit-round-1-interval-1",
+          "name": "Get ready",
+          "duration": 10,
+          "rest": 0
+        },
+        {
+          "id": "circuit-round-1-interval-2",
+          "name": "Bottom up squat and press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-4",
+          "name": "Bottom up squat and press L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-6",
+          "name": "Ring row press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-8",
+          "name": "Ring row press l",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-10",
+          "name": "Push-up 1",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-12",
+          "name": "Pull-up 2",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-14",
+          "name": "Bird dog R",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-1-interval-16",
+          "name": "Bird dog L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-2",
+          "name": "Bottom up squat and press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-4",
+          "name": "Bottom up squat and press L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-6",
+          "name": "Ring row press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-8",
+          "name": "Ring row press l",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-10",
+          "name": "Push-up 1",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-12",
+          "name": "Pull-up 2",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-14",
+          "name": "Bird dog R",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-2-interval-16",
+          "name": "Bird dog L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-2",
+          "name": "Bottom up squat and press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-4",
+          "name": "Bottom up squat and press L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-6",
+          "name": "Ring row press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-8",
+          "name": "Ring row press l",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-10",
+          "name": "Push-up 1",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-12",
+          "name": "Pull-up 2",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-14",
+          "name": "Bird dog R",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-3-interval-16",
+          "name": "Bird dog L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-2",
+          "name": "Bottom up squat and press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-4",
+          "name": "Bottom up squat and press L",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-6",
+          "name": "Ring row press r",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-8",
+          "name": "Ring row press l",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-10",
+          "name": "Push-up 1",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-12",
+          "name": "Pull-up 2",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-14",
+          "name": "Bird dog R",
+          "duration": 30,
+          "rest": 10
+        },
+        {
+          "id": "circuit-round-4-interval-16",
+          "name": "Bird dog L",
+          "duration": 30,
+          "rest": 0
+        }
+      ]
+    }
+  ]
+}

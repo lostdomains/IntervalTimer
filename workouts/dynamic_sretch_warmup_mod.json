@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "workouts": [
+    {
+      "id": "dynamic-stretch-warmup",
+      "name": "Dynamic stretch warmup [MOD]",
+      "description": "Dynamic stretch warmup with a 1-second preparation step. Original exercise order and durations preserved; no rest intervals.",
+      "color": "green",
+      "exercises": [
+        {
+          "id": "dynamic-stretch-warmup-01",
+          "name": "Get ready",
+          "duration": 1,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-03",
+          "name": "Knee pulse right",
+          "duration": 20,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-04",
+          "name": "Knee pulse left",
+          "duration": 20,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-06",
+          "name": "Jump squats",
+          "duration": 25,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-07",
+          "name": "Squats",
+          "duration": 25,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-05",
+          "name": "Plank jump jacks",
+          "duration": 20,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-08",
+          "name": "Mountain climbers",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-10",
+          "name": "Arm crosses",
+          "duration": 20,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-11",
+          "name": "Lateral squat (L+R)",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-13",
+          "name": "Back flag",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-14",
+          "name": "Deep squat hold",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-15",
+          "name": "High knee opener R",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-16",
+          "name": "High knee opener L",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-17",
+          "name": "Airborne lunge R",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-18",
+          "name": "Airborne lunge L",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-22",
+          "name": "Sun salutation push ups",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-23",
+          "name": "A frame toe touches",
+          "duration": 30,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-24",
+          "name": "R Twist T’s",
+          "duration": 20,
+          "rest": 0
+        },
+        {
+          "id": "dynamic-stretch-warmup-25",
+          "name": "L Twist T’s",
+          "duration": 20,
+          "rest": 0
+        }
+      ]
+    }
+  ]
+}

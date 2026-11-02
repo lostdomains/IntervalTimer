@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "workouts": [
+    {
+      "id": "arm-swing-push-press",
+      "name": "Adult Team 1 arm swing and push press",
+      "description": "5 rounds of 4 exercises, 60 seconds each, with no rest intervals. Original exercise names and repetition cues preserved.",
+      "color": "orange",
+      "exercises": [
+        {
+          "id": "arm_swing_push_press-round-1-interval-1",
+          "name": "1 arm swing R x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-1-interval-2",
+          "name": "Clean & Push press right x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-1-interval-3",
+          "name": "1 arm swing L x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-1-interval-4",
+          "name": "Clean & Push press left x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-2-interval-1",
+          "name": "1 arm swing R x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-2-interval-2",
+          "name": "Clean & Push press right x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-2-interval-3",
+          "name": "1 arm swing L x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-2-interval-4",
+          "name": "Clean & Push press left x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-3-interval-1",
+          "name": "1 arm swing R x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-3-interval-2",
+          "name": "Clean & Push press right x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-3-interval-3",
+          "name": "1 arm swing L x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-3-interval-4",
+          "name": "Clean & Push press left x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-4-interval-1",
+          "name": "1 arm swing R x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-4-interval-2",
+          "name": "Clean & Push press right x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-4-interval-3",
+          "name": "1 arm swing L x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-4-interval-4",
+          "name": "Clean & Push press left x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-5-interval-1",
+          "name": "1 arm swing R x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-5-interval-2",
+          "name": "Clean & Push press right x5",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-5-interval-3",
+          "name": "1 arm swing L x10",
+          "duration": 60,
+          "rest": 0
+        },
+        {
+          "id": "arm_swing_push_press-round-5-interval-4",
+          "name": "Clean & Push press left x5",
+          "duration": 60,
+          "rest": 0
+        }
+      ]
+    }
+  ]
+}
