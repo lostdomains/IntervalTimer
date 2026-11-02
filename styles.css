@@ -264,6 +264,8 @@ main {
 
 /* Workout library */
 .library-toolbar {
+  flex-wrap:wrap;
+  gap:8px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "files": [
+    "arm_swing_push_press.json",
+    "circuit.json",
+    "dynamic_sretch_warmup.json",
+    "dynamic_sretch_warmup_mod.json"
+  ]
+}

@@ -85,7 +85,7 @@ function renderLibrary() {
       <h3>${escapeHTML(workout.name)}</h3><p class="description">${escapeHTML(workout.description || 'A little time dedicated to you.')}</p>
       <div class="card-stats"><span>${icon('clock')}${durationLabel(totalSeconds(workout))} total</span><span>${icon('list')}${workout.exercises.length} exercises</span></div>
       <button class="button card-open" data-action="open-workout" data-id="${escapeHTML(workout.id)}" aria-label="Open ${escapeHTML(workout.name)}">Open workout <span aria-hidden="true">↗</span></button>
-    </article>`).join('') : `<div class="empty-state"><h2>${fileLoadFailed ? 'Let’s load your workouts' : 'Your next chapter starts here'}</h2><p>${fileLoadFailed ? 'Use Import JSON to select workouts.json, or create your first workout.' : 'Create a workout or import a JSON file to get moving.'}</p></div>`;
+    </article>`).join('') : `<div class="empty-state"><h2>${fileLoadFailed ? 'Let’s load your workouts' : 'Your next chapter starts here'}</h2><p>${fileLoadFailed ? 'Use Load folder to retry, Import JSON to select files, or create your first workout.' : 'Create a workout, load the workouts folder, or import JSON files to get moving.'}</p></div>`;
 }
 function renderExercises() {
   cancelExerciseDrag();
@@ -486,26 +486,91 @@ $('#export-button').addEventListener('click', () => {
   const anchor = document.createElement('a'); anchor.href = url; anchor.download = 'workouts.json'; document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
+// Static hosts do not necessarily expose directory listings. The generated
+// manifest provides the same file inventory when directory discovery is absent.
+function isWorkoutFilename(name) {
+  return typeof name === 'string' && /^[^/\\]+\.json$/i.test(name) && !name.includes('\0');
+}
+async function discoverWorkoutFiles() {
+  const directory = new URL('./workouts/', location.href);
+  try {
+    const response = await fetch(directory, {cache: 'no-store'});
+    if (response.ok) {
+      const document = new DOMParser().parseFromString(await response.text(), 'text/html');
+      const names = [];
+      for (const link of document.querySelectorAll('a[href]')) {
+        try {
+          const url = new URL(link.getAttribute('href'), directory);
+          if (url.origin !== directory.origin || url.search || url.hash || !url.pathname.startsWith(directory.pathname)) continue;
+          const name = decodeURIComponent(url.pathname.slice(directory.pathname.length));
+          if (isWorkoutFilename(name)) names.push(name);
+        } catch { /* Ignore unrelated or malformed directory links. */ }
+      }
+      if (names.length || /directory listing for|index of/i.test(document.title)) return [...new Set(names)].sort();
+    }
+  } catch { /* Try the static-host manifest next. */ }
+  const response = await fetch('./workouts-manifest.json', {cache: 'no-store'});
+  if (!response.ok) throw new Error('Cannot list workouts/. Generate workouts-manifest.json or enable directory listings.');
+  const manifest = await response.json();
+  if (manifest?.version !== 1 || !Array.isArray(manifest.files) || !manifest.files.every(isWorkoutFilename)) {
+    throw new Error('The workout file manifest is invalid. Regenerate it with scripts/update_workout_manifest.py.');
+  }
+  return [...new Set(manifest.files)].sort();
+}
+async function loadWorkoutFolder() {
+  const files = await discoverWorkoutFiles();
+  const collection = [];
+  for (const filename of files) {
+    try {
+      const response = await fetch(`./workouts/${encodeURIComponent(filename)}`, {cache: 'no-store'});
+      if (!response.ok) throw new Error(`Could not read file (HTTP ${response.status}).`);
+      collection.push(...validateData(await response.json()));
+    } catch (error) {
+      throw new Error(`“${filename}”: ${error instanceof SyntaxError ? 'This file isn’t valid JSON.' : error.message}`);
+    }
+    if (collection.length > 200) throw new Error('The workouts folder contains more than 200 workouts.');
+  }
+  // IDs can overlap between files (for example, original and modified versions).
+  return validateData({version: 1, workouts: collection});
+}
+function setCollectionLoading(loading) {
+  for (const selector of ['#load-folder-button', '#import-button', '#import-file', '#new-workout', '#export-button']) {
+    $(selector).disabled = loading;
+  }
+}
+$('#load-folder-button').addEventListener('click', async () => {
+  setCollectionLoading(true);
+  try {
+    const collection = await loadWorkoutFolder();
+    if (workouts.length && !await confirmAction('Load workouts from folder?', `Load ${collection.length} workouts from workouts/? This replaces your saved collection, including local edits. Export JSON first if you want a backup.`, 'Load folder')) return;
+    workouts = collection; timer = null; selectedId = null; fileLoadFailed = false;
+    const saved = save();
+    route();
+    if (saved) toast(`Loaded ${workouts.length} workouts from workouts/.`);
+  } catch (error) { toast(`${error.message} Your collection is unchanged. Use Import JSON if opening the page directly.`); }
+  finally { setCollectionLoading(false); }
+});
+
 async function initialize() {
+  setCollectionLoading(true);
   updatePreferences();
   $('#clock-ticks').innerHTML = Array.from({length: 60}, (_, index) => `<line class="clock-tick" x1="120" y1="${index % 5 ? 28 : 26}" x2="120" y2="${index % 5 ? 31 : 34}" transform="rotate(${index * 6} 120 120)"/>`).join('');
   const stored = readPreference(STORAGE_KEY);
   let loaded = false;
   if (stored !== null) {
     try { workouts = validateData(JSON.parse(stored)); loaded = true; }
-    catch { toast('Saved data could not be read. Loading the starter file.'); }
+    catch { toast('Saved data could not be read. Loading the workouts folder.'); }
   }
   if (!loaded) {
     try {
-      const response = await fetch('./workouts.json', {cache: 'no-store'});
-      if (!response.ok) throw new Error('Workout file unavailable');
-      workouts = validateData(await response.json());
-    } catch {
+      workouts = await loadWorkoutFolder();
+    } catch (error) {
       fileLoadFailed = true;
-      toast('Use Import JSON to load workouts.json, or serve this folder with a local web server.');
+      toast(`${error.message} Serve this folder with a web server or use Import JSON.`);
     }
   }
   route();
+  setCollectionLoading(false);
   window.addEventListener('hashchange', route);
   setInterval(tick, 100);
 }

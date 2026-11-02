@@ -3,7 +3,7 @@
   "workouts": [
     {
       "id": "dynamic-stretch-warmup",
-      "name": "Dynamic stretch warmup teams",
+      "name": "Dynamic stretch warmup [ORG]",
       "description": "Dynamic stretch warmup with a 1-second preparation step. Original exercise order and durations preserved; no rest intervals.",
       "color": "green",
       "exercises": [
